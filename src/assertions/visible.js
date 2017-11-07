@@ -1,4 +1,5 @@
 import configWithDefaults from '../util/default-config';
+import selectElement from '../util/select-element';
 
 export default function visible(client, chai, utils, options) {
     const config = configWithDefaults(options);
@@ -9,10 +10,10 @@ export default function visible(client, chai, utils, options) {
         const immediately = utils.flag(this, 'immediately');
 
         if (!immediately) {
-          client.waitForVisible(selector, config.defaultWait, negate);
+            selectElement(client, selector).waitForVisible(config.defaultWait, negate);
         }
 
-        const isVisible = client.isVisible(selector);
+        const isVisible = selectElement(client, selector).isVisible();
         const visibleArray = (Array.isArray(isVisible)) ? isVisible : [isVisible];
         const anyVisible = visibleArray.includes(true);
 
