@@ -1,7 +1,7 @@
 import sinon from 'sinon';
 
 const pageElementFunctions = [
-  'waitForExists',
+  'waitForExist',
   'waitForVisible',
   'isExisting',
   'isVisible'

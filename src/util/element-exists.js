@@ -1,6 +1,8 @@
+import selectElement from './select-element'
+
 export default function assertElementExists(client, selector, defaultWait=0, reverse) {
     try {
-        client.waitForExist(selector, defaultWait, reverse);
+        selectElement(client, selector).waitForExist(defaultWait, reverse);
     } catch (error) {
         if (reverse) {
           throw new Error(`Element with selector ${selector} still exists after ${defaultWait}ms (while waiting for it not to).`);
