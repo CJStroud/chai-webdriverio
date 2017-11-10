@@ -8,9 +8,7 @@ const pageElementFunctions = [
 ];
 
 const resetFunctions = function () {
-  pageElementFunctions.forEach(funcName => {
-    this[funcName].reset()
-  });
+  pageElementFunctions.forEach(funcName => this[funcName].reset());
 }
 
 export default function getFakePageElement() {
