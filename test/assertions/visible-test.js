@@ -1,6 +1,7 @@
 import chai, { expect } from 'chai';
 import sinonChai from 'sinon-chai';
 import FakeClient from '../stubs/fake-client';
+import getFakePageElement from '../stubs/get-fake-page-element'
 import proxyquire from 'proxyquire';
 import sinon from 'sinon';
 import immediately from '../../src/chains/immediately';
@@ -22,7 +23,7 @@ describe('visible', () => {
 
     beforeEach(() => {
         fakeClient = new FakeClient();
-        fakeElement = new FakeClient();
+        fakeElement = new getFakePageElement();
 
         selectElement.withArgs(fakeClient, '.some-selector').returns(fakeElement);
         selectElement.withArgs(fakeClient, fakeElement).returns(fakeElement);

@@ -11,6 +11,14 @@ export default function getFakePageElement() {
         someOtherKey: 'Inside, we both know what\'s been going on',
         yetAnotherKey: 'We know the game and we\'re gonna play it',
         waitForExists: sinon.stub(),
-        isExisting: sinon.stub()
+        waitForVisible: sinon.stub(),
+        isExisting: sinon.stub(),
+        isVisible: sinon.stub(),
+        __resetStubs__: function () {
+            this.waitForExists.reset();
+            this.waitForVisible.reset();
+            this.isExisting.reset();
+            this.isVisible.reset();
+        }
     };
 }
